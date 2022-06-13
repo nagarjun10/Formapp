@@ -24,7 +24,7 @@ export default class Form extends Component {
     event.preventDefault();
     const { name, message } = this.state;
     await axios.post(
-      'https://g5tzxgtuzb.execute-api.us-east-1.amazonaws.com/default',
+      'https://k84nj0r7sk.execute-api.us-east-1.amazonaws.com/default/FormappFunction',
       { key1: `${name}, ${message}` }
     );
   }
