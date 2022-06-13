@@ -7,6 +7,7 @@ export default class Form extends Component {
     this.state = {
       name: '',
       message: '',
+      location: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -33,15 +34,23 @@ render() {
   return (
     <div>
       <form onSubmit={this.handleSubmit}>
-        <label>Name:</label>
+        <label>Camp Venue:</label>
         <input
           type="text"
           name="name"
           onChange={this.handleChange}
           value={this.state.name}
-        />
+        /> 
 
-        <label>Message:</label>
+        <label>Camp Date:</label>
+        <input
+          type="Date"
+          name="message"  
+          onChange={this.handleChange}
+          value={this.state.message}
+        /> 
+    
+        <label>Camp Google Map Location</label>
         <input
           type="text"
           name="message"
