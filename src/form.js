@@ -7,7 +7,6 @@ export default class Form extends Component {
     this.state = {
       name: '',
       message: '',
-      location: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -20,47 +19,39 @@ export default class Form extends Component {
       [stateField]: inputValue,
     });
     console.log(this.state);
-}
-async handleSubmit(event) {
-  event.preventDefault();
-  const { name, message } = this.state;
-  await axios.post(
-    'https://g5tzxgtuzb.execute-api.us-east-1.amazonaws.com/default',
-    { key1: `${name}, ${message}` }
-  );
-}
+  }
+  async handleSubmit(event) {
+    event.preventDefault();
+    const { name, message } = this.state;
+    await axios.post(
+      'https://g5tzxgtuzb.execute-api.us-east-1.amazonaws.com/default',
+      { key1: `${name}, ${message}` }
+    );
+  }
 
-render() {
-  return (
-    <div>
-      <form onSubmit={this.handleSubmit}>
-        <label>Camp Venue:</label>
-        <input
-          type="text"
-          name="name"
-          onChange={this.handleChange}
-          value={this.state.name}
-        /> 
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>Camp Venue:</label>
+          <input
+            type="text"
+            name="name"
+            onChange={this.handleChange}
+            value={this.state.name}
+          />
 
-        <label>Camp Date:</label>
-        <input
-          type="Date"
-          name="message"  
-          onChange={this.handleChange}
-          value={this.state.message}
-        /> 
-    
-        <label>Camp Google Map Location</label>
-        <input
-          type="text"
-          name="message"
-          onChange={this.handleChange}
-          value={this.state.message}
-        />
+          <label>Camp_Date:</label>
+          <input
+            type="date"
+            name="message"
+            onChange={this.handleChange}
+            value={this.state.message}
+          />
 
-        <button type="submit">Send</button>
-      </form>
-    </div>
-  );
-}
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    );
+  }
 }
